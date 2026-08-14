@@ -1,131 +1,75 @@
-# 💼 Career-Hub
+# React + TypeScript + Vite
 
-> A modern job board built with React 19, TanStack Query, Redux Toolkit, Tailwind CSS, shadcn/ui, and Supabase.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-**Career-Hub** is a modern job board designed to connect job seekers with companies through a clean, responsive, and intuitive platform.
+Currently, two official plugins are available:
 
-The project focuses on building a realistic, production-oriented React application while exploring modern state management, server-state management, authentication, database integration, and reusable UI architecture.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
----
+## React Compiler
 
-## ✨ Features
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Career-Hub is being built to provide a complete job-search experience:
+## Expanding the ESLint configuration
 
-- 🔎 Search and discover job opportunities
-- 🎯 Filter and browse available jobs
-- 👤 User profiles
-- 📄 Job applications
-- 💼 Job posting and management
-- 🏢 Company profiles
-- 🔐 Authentication
-- 📊 Application management
-- 📱 Responsive interface
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-> 🚧 Features are being implemented progressively as the project develops.
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
----
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-## 🛠️ Tech Stack
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 
-### Frontend
-
-- ⚛️ **React 19** — UI development
-- 🔄 **TanStack Query** — server-state management, caching and data fetching
-- 🗃️ **Redux Toolkit** — client-side state management
-- 🎨 **Tailwind CSS** — styling
-- 🧩 **shadcn/ui** — reusable and accessible UI components
-
-### Backend & Database
-
-- ⚡ **Supabase** — backend platform
-- 🐘 **PostgreSQL** — relational database
-- 🔐 **Supabase Auth** — authentication
-- 🔌 **Supabase API** — database and backend communication
-
----
-
-## 🏗️ Architecture
-
-Career-Hub separates **server state** from **client state** to keep the application predictable and maintainable.
-
-```text
-                    Career-Hub
-                        │
-            ┌───────────┴───────────┐
-            │                       │
-       React 19                UI Layer
-            │
-      ┌─────┴─────┐
-      │           │
- Redux Toolkit  TanStack Query
-      │           │
- Client State  Server State
-                  │
-                  ▼
-               Supabase
-                  │
-                  ▼
-             PostgreSQL
 ```
 
----
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## 🎯 Goals
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-The main goals of Career-Hub are to:
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 
-- Build a realistic job-board application
-- Practice modern React 19 development
-- Understand client-state and server-state management
-- Work with Supabase and PostgreSQL
-- Implement authentication and user management
-- Build reusable and accessible components
-- Create a responsive UI
-- Maintain a clean and scalable architecture
-- Follow production-oriented development practices
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Project setup
-- [ ] UI foundation
-- [ ] Supabase integration
-- [ ] Authentication
-- [ ] User profiles
-- [ ] Job listings
-- [ ] Job search
-- [ ] Job filtering
-- [ ] Job details
-- [ ] Job applications
-- [ ] Company profiles
-- [ ] Employer dashboard
-- [ ] Application management
-- [ ] Responsive design
-- [ ] Testing
-- [ ] Production deployment
-
----
-
-## 📸 Screenshots
-
-Screenshots will be added as the application develops.
-
----
-
-## 🚧 Status
-
-**In development**
-
-Career-Hub is currently under active development. Features, architecture, and implementation details may evolve as the project grows.
-
----
-
-## 💻 Built With
-
-**React 19 · TanStack Query · Redux Toolkit · Tailwind CSS · shadcn/ui · Supabase · PostgreSQL**
-
----
-
-⭐ **Career-Hub — Connecting talent with opportunity.**
+```
