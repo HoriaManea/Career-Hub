@@ -12,17 +12,17 @@ The project focuses on building a realistic, production-oriented React applicati
 
 Career-Hub is being built to provide a complete job-search experience:
 
-* 🔎 Search and discover job opportunities
-* 🎯 Filter and browse available jobs
-* 👤 User profiles
-* 📄 Job applications
-* 💼 Job posting and management
-* 🏢 Company profiles
-* 🔐 Authentication
-* 📊 Application management
-* 📱 Responsive interface
+- 🔎 Search and discover job opportunities
+- 🎯 Filter and browse available jobs
+- 👤 User profiles
+- 📄 Job applications
+- 💼 Job posting and management
+- 🏢 Company profiles
+- 🔐 Authentication
+- 📊 Application management
+- 📱 Responsive interface
 
-> 🚧 Features are being implemented progressively as the project develops.
+> 🚧 Features are being implemented progressively as the project develops
 
 ---
 
@@ -30,18 +30,18 @@ Career-Hub is being built to provide a complete job-search experience:
 
 ### Frontend
 
-* ⚛️ **React 19** — UI development
-* 🔄 **TanStack Query** — server-state management, caching and data fetching
-* 🗃️ **Redux Toolkit** — client-side state management
-* 🎨 **Tailwind CSS** — styling
-* 🧩 **shadcn/ui** — reusable and accessible UI components
+- ⚛️ **React 19** — UI development
+- 🔄 **TanStack Query** — server-state management, caching and data fetching
+- 🗃️ **Redux Toolkit** — client-side state management
+- 🎨 **Tailwind CSS** — styling
+- 🧩 **shadcn/ui** — reusable and accessible UI components
 
 ### Backend & Database
 
-* ⚡ **Supabase** — backend platform
-* 🐘 **PostgreSQL** — relational database
-* 🔐 **Supabase Auth** — authentication
-* 🔌 **Supabase API** — database and backend communication
+- ⚡ **Supabase** — backend platform
+- 🐘 **PostgreSQL** — relational database
+- 🔐 **Supabase Auth** — authentication
+- 🔌 **Supabase API** — database and backend communication
 
 ---
 
@@ -75,36 +75,36 @@ Career-Hub separates **server state** from **client state** to keep the applicat
 
 The main goals of Career-Hub are to:
 
-* Build a realistic job-board application
-* Practice modern React 19 development
-* Understand client-state and server-state management
-* Work with Supabase and PostgreSQL
-* Implement authentication and user management
-* Build reusable and accessible components
-* Create a responsive UI
-* Maintain a clean and scalable architecture
-* Follow production-oriented development practices
+- Build a realistic job-board application
+- Practice modern React 19 development
+- Understand client-state and server-state management
+- Work with Supabase and PostgreSQL
+- Implement authentication and user management
+- Build reusable and accessible components
+- Create a responsive UI
+- Maintain a clean and scalable architecture
+- Follow production-oriented development practices
 
 ---
 
 ## 🗺️ Roadmap
 
-* [ ] Project setup
-* [ ] UI foundation
-* [ ] Supabase integration
-* [ ] Authentication
-* [ ] User profiles
-* [ ] Job listings
-* [ ] Job search
-* [ ] Job filtering
-* [ ] Job details
-* [ ] Job applications
-* [ ] Company profiles
-* [ ] Employer dashboard
-* [ ] Application management
-* [ ] Responsive design
-* [ ] Testing
-* [ ] Production deployment
+- [ ] Project setup
+- [ ] UI foundation
+- [ ] Supabase integration
+- [ ] Authentication
+- [ ] User profiles
+- [ ] Job listings
+- [ ] Job search
+- [ ] Job filtering
+- [ ] Job details
+- [ ] Job applications
+- [ ] Company profiles
+- [ ] Employer dashboard
+- [ ] Application management
+- [ ] Responsive design
+- [ ] Testing
+- [ ] Production deployment
 
 ---
 
@@ -127,4 +127,3 @@ Career-Hub is currently under active development. Features, architecture, and im
 **React 19 · TanStack Query · Redux Toolkit · Tailwind CSS · shadcn/ui · Supabase · PostgreSQL**
 
 ---
-
