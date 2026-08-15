@@ -28,12 +28,16 @@ export default function Navigation() {
         </NavLink>
       </ul>
       <div className="flex gap-6">
-        <button className="hover:-translate-y-[2px] active:opacity-70 hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] transition-all duration-200 ease-out rounded-full cursor-pointer text-[var(--text-light)] border-solid border-2 pr-6 pl-6 pt-1 pb-1">
-          Login
-        </button>
-        <button className="hover:-translate-y-[2px] active:opacity-70 hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] transition-all duration-200 ease-out rounded-full cursor-pointer border-[var(--light-green)] text-white text-[var(--text-light)] bg-[var(--light-green)] border-solid border-2 pr-6 pl-6 pt-1 pb-1">
-          Login
-        </button>
+        <NavLink to="/login">
+          <button className="hover:-translate-y-[2px] active:opacity-70 hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] transition-all duration-200 ease-out rounded-full cursor-pointer text-[var(--text-light)] border-solid border-2 pr-6 pl-6 pt-1 pb-1">
+            Login
+          </button>
+        </NavLink>
+        <NavLink to="/signup">
+          <button className="hover:-translate-y-[2px] active:opacity-70 hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] transition-all duration-200 ease-out rounded-full cursor-pointer border-[var(--light-green)] text-white text-[var(--text-light)] bg-[var(--light-green)] border-solid border-2 pr-6 pl-6 pt-1 pb-1">
+            Signup
+          </button>
+        </NavLink>
       </div>
     </nav>
   );
