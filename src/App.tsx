@@ -1,7 +1,12 @@
 import { useState, type FormEvent } from "react";
 import { useDebounce } from "./hooks/useDebounce";
-import Input from "./components/layout/Input";
-import Navigation from "./components/ui/Navigation";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Home from "./pages/Home";
+import Layout from "./components/layout/Layout";
+import Jobs from "./pages/Jobs";
+import Explore from "./pages/Explore";
+import Category from "./pages/Category";
+import Pages from "./pages/pages";
 
 type DataForm = {
   name: string;
@@ -22,7 +27,19 @@ function AppTwo() {
 
   console.log("Debounced:", debouncedForm);
 
-  return <Navigation />;
+  return (
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="jobs" element={<Jobs />} />
+          <Route path="explore" element={<Explore />} />
+          <Route path="category" element={<Category />} />
+          <Route path="pages" element={<Pages />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
+  );
 }
 
 export default AppTwo;
