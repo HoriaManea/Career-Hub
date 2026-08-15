@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
 :root {
   font-size: 16px;
+  --text-h: #f3f4f6;
+  --text-light: #5e5e5e;
+  --light-green: #01be5e;
+  font-family: "Poppins", sans-serif;
 }
 
 * {
@@ -14,6 +21,8 @@ body {
   margin: 0;
   min-width: 20rem;
   min-height: 100vh;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 #root {
