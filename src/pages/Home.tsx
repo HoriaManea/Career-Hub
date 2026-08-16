@@ -9,8 +9,10 @@ import profileImage6 from "../assets/profile6.jpg";
 import profileImage7 from "../assets/profile7.jpg";
 import profileImage8 from "../assets/profile8.jpg";
 import profileImage9 from "../assets/profile9.jpg";
+import { useTranslation } from "../i18n";
 
 export default function Home() {
+  const { t } = useTranslation();
   return (
     <div className="relative flex min-h-[58rem] w-full flex-col items-center justify-center overflow-hidden">
       <div className="absolute left-[8%] top-[18%] h-10 w-10 overflow-hidden rounded-full border-2 border-white shadow-md">
@@ -117,13 +119,13 @@ export default function Home() {
 
       <section className="relative z-10 flex w-full flex-col items-center">
         <h1 className="text-center text-6xl font-medium leading-[1.05] tracking-[-2px] text-black">
-          Find & Hire
+          {t.home.title.first}
           <br />
-          Experts for any Job
+          {t.home.title.second}
         </h1>
 
         <p className="mt-6 text-center text-sm text-[var(--text-light)]">
-          Jobs & Job Search. Find jobs in global. Executive jobs & work.
+          {t.home.subtitle}
         </p>
 
         <form
@@ -135,7 +137,7 @@ export default function Home() {
               className="mb-1 text-left text-[9px] text-neutral-400"
               htmlFor="category"
             >
-              Job Categories
+              {t.home.jobCategories}
             </label>
 
             <select
@@ -156,14 +158,14 @@ export default function Home() {
               className="mb-1 text-left text-[9px] text-neutral-400"
               htmlFor="keywords"
             >
-              Keywords or Title
+              {t.home.keywordsOrTitle}
             </label>
 
             <input
               className="w-full bg-transparent text-xs text-neutral-700 outline-none placeholder:text-neutral-500"
               id="keywords"
               type="text"
-              placeholder="Design, branding"
+              placeholder={t.home.keywordsPlaceholder}
             />
           </div>
 
@@ -171,13 +173,15 @@ export default function Home() {
             className="h-10 rounded-md bg-[var(--light-green)] px-7 text-xs font-medium text-white transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] active:translate-y-0 active:opacity-70"
             type="submit"
           >
-            Search
+            {t.home.search}
           </button>
         </form>
 
         <p className="mt-3 text-center text-[10px] text-neutral-400">
-          <span className="font-semibold text-neutral-700">Popular:</span>{" "}
-          Designer, Art, Business, Video Editing
+          <span className="font-semibold text-neutral-700">
+            {t.home.popular}
+          </span>{" "}
+          {t.home.popularItems}
         </p>
       </section>
 
