@@ -1,5 +1,5 @@
-import React from "react";
 import { NavLink } from "react-router";
+import profileImage from "../../assets/profile1.jpg";
 
 export default function Navigation() {
   return (
@@ -28,16 +28,28 @@ export default function Navigation() {
         </NavLink>
       </ul>
       <div className="flex gap-6">
-        <NavLink to="/login">
-          <button className="hover:-translate-y-[2px] active:opacity-70 hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] transition-all duration-200 ease-out rounded-full cursor-pointer text-[var(--text-light)] border-solid border-2 pr-6 pl-6 pt-1 pb-1">
-            Login
-          </button>
-        </NavLink>
-        <NavLink to="/signup">
-          <button className="hover:-translate-y-[2px] active:opacity-70 hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] transition-all duration-200 ease-out rounded-full cursor-pointer border-[var(--light-green)] text-white text-[var(--text-light)] bg-[var(--light-green)] border-solid border-2 pr-6 pl-6 pt-1 pb-1">
-            Signup
-          </button>
-        </NavLink>
+        {false ? (
+          <>
+            <NavLink to="/login">
+              <button className="hover:-translate-y-[2px] active:opacity-70 hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] transition-all duration-200 ease-out rounded-full cursor-pointer text-[var(--text-light)] border-solid border-2 pr-6 pl-6 pt-1 pb-1">
+                Login
+              </button>
+            </NavLink>
+            <NavLink to="/signup">
+              <button className="hover:-translate-y-[2px] active:opacity-70 hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] transition-all duration-200 ease-out rounded-full cursor-pointer border-[var(--light-green)] text-white text-[var(--text-light)] bg-[var(--light-green)] border-solid border-2 pr-6 pl-6 pt-1 pb-1">
+                Signup
+              </button>
+            </NavLink>
+          </>
+        ) : (
+          <NavLink to="/account">
+            <img
+              src={profileImage}
+              alt="Profile Image"
+              className="h-10 w-10 rounded-full object-cover transition-transform duration-200 hover:scale-105"
+            />
+          </NavLink>
+        )}
       </div>
     </nav>
   );
