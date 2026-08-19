@@ -496,6 +496,12 @@ export default function Jobs() {
               </div>
             ))}
 
+          {data?.length === 0 && (
+            <div className="mt-8 text-center">
+              <h1>No jobs available</h1>
+            </div>
+          )}
+
           <div className="mt-10 flex items-center justify-center gap-2">
             {data && totalPages >= 2 && startPage !== 1 && (
               <button
