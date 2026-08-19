@@ -195,7 +195,10 @@ export default function Jobs() {
                 <input
                   value="Developer"
                   checked={categories === "Developer"}
-                  onChange={(e) => setCategories(e.target.value)}
+                  onChange={(e) => {
+                    setCategories(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -205,7 +208,10 @@ export default function Jobs() {
                 <input
                   value="Marketing"
                   checked={categories === "Marketing"}
-                  onChange={(e) => setCategories(e.target.value)}
+                  onChange={(e) => {
+                    setCategories(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -215,7 +221,10 @@ export default function Jobs() {
                 <input
                   value="Business"
                   checked={categories === "Business"}
-                  onChange={(e) => setCategories(e.target.value)}
+                  onChange={(e) => {
+                    setCategories(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -225,7 +234,10 @@ export default function Jobs() {
                 <input
                   value="Sales"
                   checked={categories === "Sales"}
-                  onChange={(e) => setCategories(e.target.value)}
+                  onChange={(e) => {
+                    setCategories(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -243,7 +255,10 @@ export default function Jobs() {
                 <input
                   value="Full-time"
                   checked={jobType === "Full-time"}
-                  onChange={(e) => setJobType(e.target.value)}
+                  onChange={(e) => {
+                    setJobType(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   defaultChecked
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
@@ -254,7 +269,10 @@ export default function Jobs() {
                 <input
                   value="Part-time"
                   checked={jobType === "Part-time"}
-                  onChange={(e) => setJobType(e.target.value)}
+                  onChange={(e) => {
+                    setJobType(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -264,7 +282,10 @@ export default function Jobs() {
                 <input
                   value="Contract"
                   checked={jobType === "Contract"}
-                  onChange={(e) => setJobType(e.target.value)}
+                  onChange={(e) => {
+                    setJobType(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -274,7 +295,10 @@ export default function Jobs() {
                 <input
                   value="Internship"
                   checked={jobType === "Internship"}
-                  onChange={(e) => setJobType(e.target.value)}
+                  onChange={(e) => {
+                    setJobType(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -291,7 +315,10 @@ export default function Jobs() {
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
                   value="Junior"
-                  onChange={(e) => setExperienceLevel(e.target.value)}
+                  onChange={(e) => {
+                    setExperienceLevel(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   checked={experieceLevel === "Junior"}
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
@@ -301,7 +328,10 @@ export default function Jobs() {
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
                   value="Middle"
-                  onChange={(e) => setExperienceLevel(e.target.value)}
+                  onChange={(e) => {
+                    setExperienceLevel(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   checked={experieceLevel === "Middle"}
                   defaultChecked
@@ -313,7 +343,10 @@ export default function Jobs() {
                 <input
                   value="Senior"
                   checked={experieceLevel === "Senior"}
-                  onChange={(e) => setExperienceLevel(e.target.value)}
+                  onChange={(e) => {
+                    setExperienceLevel(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -323,7 +356,10 @@ export default function Jobs() {
                 <input
                   value="Lead"
                   checked={experieceLevel === "Lead"}
-                  onChange={(e) => setExperienceLevel(e.target.value)}
+                  onChange={(e) => {
+                    setExperienceLevel(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -341,7 +377,10 @@ export default function Jobs() {
                 <input
                   value="Remote"
                   checked={location === "Remote"}
-                  onChange={(e) => setLocation(e.target.value)}
+                  onChange={(e) => {
+                    setLocation(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   defaultChecked
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
@@ -352,7 +391,10 @@ export default function Jobs() {
                 <input
                   value="On-site"
                   checked={location === "On-site"}
-                  onChange={(e) => setLocation(e.target.value)}
+                  onChange={(e) => {
+                    setLocation(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -362,7 +404,10 @@ export default function Jobs() {
                 <input
                   value="Hybrid"
                   checked={location === "Hybrid"}
-                  onChange={(e) => setLocation(e.target.value)}
+                  onChange={(e) => {
+                    setLocation(e.target.value);
+                    setPage(1);
+                  }}
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
@@ -462,25 +507,26 @@ export default function Jobs() {
                 ‹
               </button>
             )}
-            {Array.from({ length: totalPages }, (_, i) => (
-              <button
-                onClick={() => {
-                  const nextPage = i + 1;
+            {totalPages >= 2 &&
+              Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  onClick={() => {
+                    const nextPage = i + 1;
 
-                  setPage(nextPage);
-                  setCurrentPage(i + 1);
-                  localStorage.setItem("page", String(nextPage));
-                }}
-                key={i}
-                type="button"
-                className="flex h-8 w-8 items-center justify-center rounded-md bg-[var(--light-green)] text-xs font-medium text-white"
-                style={{
-                  backgroundColor: currentPage === i + 1 ? "#2ced8d" : "",
-                }}
-              >
-                {i + 1}
-              </button>
-            ))}
+                    setPage(nextPage);
+                    setCurrentPage(i + 1);
+                    localStorage.setItem("page", String(nextPage));
+                  }}
+                  key={i}
+                  type="button"
+                  className="flex h-8 w-8 items-center justify-center rounded-md bg-[var(--light-green)] text-xs font-medium text-white"
+                  style={{
+                    backgroundColor: currentPage === i + 1 ? "#2ced8d" : "",
+                  }}
+                >
+                  {i + 1}
+                </button>
+              ))}
             {data && totalPages >= 2 && differencePage !== 0 && (
               <button
                 onClick={handleIncreasePage}
