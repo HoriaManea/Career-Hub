@@ -1,5 +1,3 @@
-import React from "react";
-
 import profileImage1 from "../assets/profile1.jpg";
 import profileImage2 from "../assets/profile2.jpg";
 import profileImage3 from "../assets/profile3.jpg";
@@ -13,6 +11,7 @@ import { useTranslation } from "../i18n";
 
 export default function Home() {
   const { t } = useTranslation();
+
   return (
     <div className="relative flex min-h-[58rem] w-full flex-col items-center justify-center overflow-hidden">
       <div className="absolute left-[8%] top-[18%] h-10 w-10 overflow-hidden rounded-full border-2 border-white shadow-md">
@@ -180,7 +179,7 @@ export default function Home() {
         <p className="mt-3 text-center text-[10px] text-neutral-400">
           <span className="font-semibold text-neutral-700">
             {t.home.popular}
-          </span>{" "}
+          </span>
           {t.home.popularItems}
         </p>
       </section>
