@@ -81,7 +81,7 @@ export default function Jobs() {
   const differencePage = totalPages - page;
   const startPage = totalPages - differencePage;
 
-  console.log(jobType, location, experieceLevel, categories);
+  console.log(data);
 
   return (
     <div className="w-full py-16 relative">
@@ -452,7 +452,7 @@ export default function Jobs() {
             ))}
 
           <div className="mt-10 flex items-center justify-center gap-2">
-            {startPage !== 1 && (
+            {data && totalPages >= 2 && startPage !== 1 && (
               <button
                 onClick={handleDecreasePage}
                 disabled={page === 1}
@@ -481,7 +481,7 @@ export default function Jobs() {
                 {i + 1}
               </button>
             ))}
-            {differencePage !== 0 && (
+            {data && totalPages >= 2 && differencePage !== 0 && (
               <button
                 onClick={handleIncreasePage}
                 type="button"
