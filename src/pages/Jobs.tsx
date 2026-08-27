@@ -5,6 +5,16 @@ import { useState } from "react";
 import useJobsFilter from "../hooks/useJobsFilter";
 
 export default function Jobs() {
+  //////////////////////////////////////////
+  const [keyword, setKeyword] = useState<string>("");
+
+  function handleKeyword(e) {
+    setKeyword(e.target.value);
+  }
+
+  console.log(keyword);
+  //////////////////////////////////////////
+
   const [page, setPage] = useState(() => {
     const savedPage = localStorage.getItem("page");
 
@@ -81,8 +91,6 @@ export default function Jobs() {
   const differencePage = totalPages - page;
   const startPage = totalPages - differencePage;
 
-  console.log(data);
-
   return (
     <div className="w-full py-16 relative">
       <div className="mx-auto flex max-w-[1100px] flex-col items-center">
@@ -114,6 +122,7 @@ export default function Jobs() {
               type="text"
               placeholder="e.g. Product Designer"
               className="w-full bg-transparent text-xs text-neutral-700 outline-none placeholder:text-neutral-500"
+              onChange={handleKeyword}
             />
           </div>
 
@@ -427,15 +436,6 @@ export default function Jobs() {
               </span>
               jobs
             </p>
-
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-neutral-400">Sort by</span>
-              <select className="cursor-pointer appearance-none rounded-md border border-neutral-200 bg-white px-3 py-2 text-xs font-medium text-neutral-600 outline-none">
-                <option>Most recent</option>
-                <option>Highest salary</option>
-                <option>Company A–Z</option>
-              </select>
-            </div>
           </div>
 
           {data &&

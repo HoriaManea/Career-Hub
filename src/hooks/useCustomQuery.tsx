@@ -6,6 +6,7 @@ type JobFilters = {
   experieceLevel?: string;
   location?: string;
   categories?: string;
+  keyword?: string;
 };
 
 type UseCustomQueryProps = {
