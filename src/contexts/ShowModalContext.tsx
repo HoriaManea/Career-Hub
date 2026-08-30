@@ -24,7 +24,6 @@ export function ShowModalProvider({
 
   function handleShowModal(): void {
     setShowJob((prev) => !prev);
-    console.log(false);
   }
 
   function handleJobNavigation(id: string | undefined): string | undefined {

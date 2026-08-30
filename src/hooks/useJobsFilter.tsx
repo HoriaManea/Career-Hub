@@ -5,14 +5,14 @@ function useJobsFilter() {
   const [experieceLevel, setExperienceLevel] = useState<string | undefined>();
   const [location, setLocation] = useState<string | undefined>();
   const [categories, setCategories] = useState<string | undefined>();
-
-  const [sortBy, setSortBy] = useState();
+  const [searchJob, setSearchJob] = useState<string | undefined>();
 
   function handleClearFilter() {
     setJobType("");
     setExperienceLevel("");
     setLocation("");
     setCategories("");
+    setSearchJob("");
   }
 
   return {
@@ -20,11 +20,13 @@ function useJobsFilter() {
     jobType,
     location,
     categories,
+    searchJob,
     setExperienceLevel,
     setJobType,
     setLocation,
     handleClearFilter,
     setCategories,
+    setSearchJob,
   };
 }
 

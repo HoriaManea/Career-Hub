@@ -3,18 +3,9 @@ import JobsModal from "../components/ui/JobsModal";
 import useCustomQuery from "../hooks/useCustomQuery";
 import { useState } from "react";
 import useJobsFilter from "../hooks/useJobsFilter";
+import { useDebounce } from "../hooks/useDebounce";
 
 export default function Jobs() {
-  //////////////////////////////////////////
-  const [keyword, setKeyword] = useState<string>("");
-
-  function handleKeyword(e) {
-    setKeyword(e.target.value);
-  }
-
-  console.log(keyword);
-  //////////////////////////////////////////
-
   const [page, setPage] = useState(() => {
     const savedPage = localStorage.getItem("page");
 
@@ -35,12 +26,16 @@ export default function Jobs() {
     jobType,
     location,
     categories,
+    searchJob,
     setJobType,
     setExperienceLevel,
     setLocation,
     handleClearFilter,
     setCategories,
+    setSearchJob,
   } = useJobsFilter();
+
+  const debouncedSearch = useDebounce(searchJob);
 
   const { data, totalPages } = useCustomQuery({
     queryKey: "jobs",
@@ -50,6 +45,7 @@ export default function Jobs() {
       experieceLevel,
       location,
       categories,
+      debouncedSearch,
     },
   });
 
@@ -110,9 +106,9 @@ export default function Jobs() {
           action=""
           className="mt-8 flex w-full max-w-[760px] items-center rounded-md border border-neutral-700 bg-white p-2"
         >
-          <div className="flex flex-1 flex-col px-4 py-2">
+          <div className="flex flex-1 flex-col px-4 py-2 ">
             <label
-              className="mb-1 text-left text-[9px] text-neutral-400"
+              className="mb-1 text-center text-[20px] text-neutral-400"
               htmlFor="keywords"
             >
               Keywords or title
@@ -120,56 +116,12 @@ export default function Jobs() {
             <input
               id="keywords"
               type="text"
-              placeholder="e.g. Product Designer"
-              className="w-full bg-transparent text-xs text-neutral-700 outline-none placeholder:text-neutral-500"
-              onChange={handleKeyword}
+              value={searchJob}
+              placeholder={"e.g. Product Designer"}
+              className="w-full text-center bg-transparent text-s text-neutral-700 outline-none placeholder:text-neutral-500"
+              onChange={(e) => setSearchJob(e.target.value)}
             />
           </div>
-
-          <div className="h-10 w-px bg-neutral-200" />
-
-          <div className="flex flex-1 flex-col px-4 py-2">
-            <label
-              className="mb-1 text-left text-[9px] text-neutral-400"
-              htmlFor="location"
-            >
-              Location
-            </label>
-            <input
-              id="location"
-              type="text"
-              placeholder="City or remote"
-              className="w-full bg-transparent text-xs text-neutral-700 outline-none placeholder:text-neutral-500"
-            />
-          </div>
-
-          <div className="h-10 w-px bg-neutral-200" />
-
-          <div className="flex flex-1 flex-col px-4 py-2">
-            <label
-              className="mb-1 text-left text-[9px] text-neutral-400"
-              htmlFor="category"
-            >
-              Category
-            </label>
-            <select
-              id="category"
-              className="w-full cursor-pointer appearance-none bg-transparent text-left text-xs font-medium text-neutral-700 outline-none"
-            >
-              <option>All categories</option>
-              <option>Design</option>
-              <option>Development</option>
-              <option>Marketing</option>
-              <option>Business</option>
-            </select>
-          </div>
-
-          <button
-            className="h-10 rounded-md bg-[var(--light-green)] px-7 text-xs font-medium text-white transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] active:translate-y-0 active:opacity-70"
-            type="submit"
-          >
-            Search
-          </button>
         </form>
       </div>
 
@@ -427,17 +379,6 @@ export default function Jobs() {
         </aside>
 
         <div className="flex flex-1 flex-col">
-          <div className="mb-5 flex items-center justify-between">
-            <p className="text-xs text-neutral-400">
-              Showing <span className="font-medium text-neutral-700">1–8</span>
-              of
-              <span className="font-medium text-neutral-700">
-                {data?.length}
-              </span>
-              jobs
-            </p>
-          </div>
-
           {data &&
             data.map((el) => (
               <div

@@ -7,6 +7,7 @@ type JobFilters = {
   location?: string;
   categories?: string;
   keyword?: string;
+  debouncedSearch?: string;
 };
 
 type UseCustomQueryProps = {
@@ -81,6 +82,10 @@ export default function useCustomQuery({
 
       if (filters?.categories) {
         query = query.eq("category", filters.categories);
+      }
+
+      if (filters?.debouncedSearch) {
+        query = query.ilike("title", `%${filters.debouncedSearch}%`);
       }
 
       const { data, error, count } = await query.range(from, to);
