@@ -4,6 +4,7 @@ import useCustomQuery from "../hooks/useCustomQuery";
 import { useState } from "react";
 import useJobsFilter from "../hooks/useJobsFilter";
 import { useDebounce } from "../hooks/useDebounce";
+import Spinner from "../components/reusable/Spinner";
 
 export default function Jobs() {
   const [page, setPage] = useState(() => {
@@ -37,7 +38,7 @@ export default function Jobs() {
 
   const debouncedSearch = useDebounce(searchJob);
 
-  const { data, totalPages } = useCustomQuery({
+  const { data, totalPages, isLoading } = useCustomQuery({
     queryKey: "jobs",
     page,
     filters: {
@@ -379,7 +380,9 @@ export default function Jobs() {
         </aside>
 
         <div className="flex flex-1 flex-col">
+          {isLoading && <Spinner />}
           {data &&
+            !isLoading &&
             data.map((el) => (
               <div
                 onClick={() => {
