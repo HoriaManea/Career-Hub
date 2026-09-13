@@ -174,6 +174,14 @@ export default function Home() {
           >
             {t.home.search}
           </button>
+
+          <button
+            className="h-10 rounded-md bg-amber-700 px-7 text-xs font-medium text-white transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] active:translate-y-0 active:opacity-70"
+            type="submit"
+            onClick={() => console.log(112)}
+          >
+            al doilea button
+          </button>
         </form>
 
         <p className="mt-3 text-center text-[10px] text-neutral-400">
