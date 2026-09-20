@@ -1,7 +1,9 @@
-import { useModal } from "../hooks/useModal";
-import JobsModal from "../components/ui/JobsModal";
-import useCustomQuery from "../hooks/useCustomQuery";
 import { useState } from "react";
+
+import JobsModal from "../components/ui/JobsModal";
+
+import { useModal } from "../hooks/useModal";
+import useCustomQuery from "../hooks/useCustomQuery";
 import useJobsFilter from "../hooks/useJobsFilter";
 import { useDebounce } from "../hooks/useDebounce";
 import Spinner from "../components/reusable/Spinner";

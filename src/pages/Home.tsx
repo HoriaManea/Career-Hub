@@ -1,3 +1,5 @@
+import { useTranslation } from "../i18n";
+
 import profileImage1 from "../assets/profile1.jpg";
 import profileImage2 from "../assets/profile2.jpg";
 import profileImage3 from "../assets/profile3.jpg";
@@ -7,7 +9,6 @@ import profileImage6 from "../assets/profile6.jpg";
 import profileImage7 from "../assets/profile7.jpg";
 import profileImage8 from "../assets/profile8.jpg";
 import profileImage9 from "../assets/profile9.jpg";
-import { useTranslation } from "../i18n";
 
 export default function Home() {
   const { t } = useTranslation();

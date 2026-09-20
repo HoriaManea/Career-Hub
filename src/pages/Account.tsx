@@ -1,5 +1,6 @@
-import { useSettings } from "../hooks/useSettings";
 import { useTranslation } from "../i18n";
+
+import { useSettings } from "../hooks/useSettings";
 import profileImage1 from "../assets/profile1.jpg";
 
 export default function Account() {
