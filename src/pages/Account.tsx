@@ -440,15 +440,12 @@ export default function Account() {
                 <p className="text-xs font-medium text-black">
                   {account.dangerZone.deactivate.title}
                 </p>
-                <p className="mt-0.5 text-[11px] text-[var(--text-light)]">
-                  {account.dangerZone.deactivate.description}
-                </p>
               </div>
               <button
                 type="button"
                 className="rounded-full border-2 border-solid border-neutral-300 px-6 py-2 text-xs font-medium text-neutral-700 transition-all duration-200 ease-out hover:-translate-y-[1px] active:translate-y-0 active:opacity-70"
               >
-                {account.dangerZone.deactivate.button}
+                {account.dangerZone.deactivate.title}
               </button>
             </div>
 
