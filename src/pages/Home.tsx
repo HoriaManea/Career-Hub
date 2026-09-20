@@ -1,4 +1,5 @@
 import { useTranslation } from "../i18n";
+import { Link } from "react-router";
 
 import profileImage1 from "../assets/profile1.jpg";
 import profileImage2 from "../assets/profile2.jpg";
@@ -128,54 +129,57 @@ export default function Home() {
           {t.home.subtitle}
         </p>
 
-        <form
-          action=""
-          className="mt-9 flex w-full max-w-[700px] items-center rounded-md border border-neutral-700 bg-white p-2"
-        >
-          <div className="flex flex-1 flex-col px-4 py-2">
-            <label
-              className="mb-1 text-left text-[9px] text-neutral-400"
-              htmlFor="category"
-            >
-              {t.home.jobCategories}
-            </label>
+        <div className="mt-9 flex w-full max-w-[700px] flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--light-green)]/10">
+              <svg
+                className="h-4 w-4 text-[var(--light-green)]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </div>
 
-            <select
-              className="w-full cursor-pointer appearance-none bg-transparent text-left text-xs font-medium text-neutral-700 outline-none"
-              id="category"
-            >
-              <option>Designer</option>
-              <option>Developer</option>
-              <option>Marketing</option>
-              <option>Business</option>
-            </select>
+            <div className="flex flex-col text-left">
+              <span className="text-xs font-semibold text-neutral-700">
+                Job Categories
+              </span>
+              <span className="text-[11px] text-neutral-400">
+                Search by keyword or title
+              </span>
+            </div>
           </div>
 
-          <div className="h-10 w-px bg-neutral-200" />
+          <div className="hidden h-8 w-px shrink-0 bg-neutral-200 sm:block" />
 
-          <div className="flex flex-1 flex-col px-4 py-2">
-            <label
-              className="mb-1 text-left text-[9px] text-neutral-400"
-              htmlFor="keywords"
-            >
-              {t.home.keywordsOrTitle}
-            </label>
-
-            <input
-              className="w-full bg-transparent text-xs text-neutral-700 outline-none placeholder:text-neutral-500"
-              id="keywords"
-              type="text"
-              placeholder={t.home.keywordsPlaceholder}
-            />
+          <div className="flex flex-1 flex-wrap items-center gap-2">
+            <span className="rounded-full bg-neutral-100 px-3 py-1.5 text-[11px] font-medium text-neutral-600">
+              Designer
+            </span>
+            <span className="rounded-full bg-neutral-100 px-3 py-1.5 text-[11px] font-medium text-neutral-600">
+              Developer
+            </span>
+            <span className="rounded-full bg-neutral-100 px-3 py-1.5 text-[11px] font-medium text-neutral-600">
+              Marketing
+            </span>
+            <span className="rounded-full bg-neutral-100 px-3 py-1.5 text-[11px] font-medium text-neutral-600">
+              Business
+            </span>
           </div>
 
-          <button
-            className="h-10 rounded-md bg-[var(--light-green)] px-7 text-xs font-medium text-white transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,255,140,0.25)] active:translate-y-0 active:opacity-70"
-            type="submit"
+          <Link
+            className="flex h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[var(--light-green)] px-7 text-xs font-medium !text-white transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,255,140,0.35)] active:translate-y-0 active:opacity-70"
+            to={"/jobs"}
           >
-            {t.home.search}
-          </button>
-        </form>
+            Search
+          </Link>
+        </div>
 
         <p className="mt-3 text-center text-[10px] text-neutral-400">
           <span className="font-semibold text-neutral-700">
