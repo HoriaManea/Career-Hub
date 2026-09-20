@@ -2,10 +2,11 @@ import { useState } from "react";
 
 import JobsModal from "../components/ui/JobsModal";
 
-import { useModal } from "../hooks/useModal";
 import useCustomQuery from "../hooks/useCustomQuery";
 import useJobsFilter from "../hooks/useJobsFilter";
+import { useModal } from "../hooks/useModal";
 import { useDebounce } from "../hooks/useDebounce";
+
 import Spinner from "../components/reusable/Spinner";
 
 export default function Jobs() {
@@ -93,10 +94,6 @@ export default function Jobs() {
   return (
     <div className="w-full py-16 relative">
       <div className="mx-auto flex max-w-[1100px] flex-col items-center">
-        <span className="mb-3 text-xs font-medium text-[var(--light-green)]">
-          {} open positions
-        </span>
-
         <h1 className="text-center text-5xl font-medium leading-[1.05] tracking-[-1.5px] text-black">
           Find your next role
         </h1>
