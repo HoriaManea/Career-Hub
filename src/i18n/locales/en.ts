@@ -8,7 +8,7 @@ export const en = {
     categoryPlaceholder: "Designer",
     keywordsPlaceholder: "Design, branding",
     search: "Search",
-    popular: "Popular:",
+    popular: "Popular: ",
     popularItems: "Designer, Art, Business, Video Editing",
   },
   account: {

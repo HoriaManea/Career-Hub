@@ -8,7 +8,7 @@ export const ro = {
     categoryPlaceholder: "Designer",
     keywordsPlaceholder: "Design, branding",
     search: "Caută",
-    popular: "Popular:",
+    popular: "Popular: ",
     popularItems: "Designer, Artă, Business, Editare video",
   },
   account: {

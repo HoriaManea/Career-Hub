@@ -11,7 +11,7 @@ export const fr = {
     categoryPlaceholder: "Designer",
     keywordsPlaceholder: "Design, branding",
     search: "Rechercher",
-    popular: "Populaire :",
+    popular: "Populaire: ",
     popularItems: "Designer, Art, Business, Montage vidéo",
   },
   account: {
