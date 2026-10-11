@@ -2,15 +2,37 @@ import { useModal } from "../../hooks/useModal";
 import { useTranslation } from "../../i18n";
 import useCustomQuery from "../../hooks/useCustomQuery";
 
-export default function JobsModal() {
+type Job = {
+category?: string;
+company?: string;
+description?: string;
+experience?: string;
+id?: number;
+location?: string;  
+postedAt?: string;  
+salary?: string;  
+shortCompanyName?: string;  
+tags?: string[];
+title?: string;
+type?: string
+}
+
+type JobsModalProps = {
+  job: Job;
+};
+
+
+export default function JobsModal({job}: JobsModalProps) {
   const { t } = useTranslation();
 
   const { handleShowModal, jobId } = useModal();
 
-  const { data, isLoading } = useCustomQuery({
+  const { isLoading } = useCustomQuery({
     queryKey: "jobs",
     jobId,
   });
+
+  console.log(job)
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
@@ -42,15 +64,15 @@ export default function JobsModal() {
 
           <div className="flex items-start gap-4 border-b border-neutral-100 p-6 pr-14">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-lg font-semibold text-emerald-600">
-              {data?.shortCompanyName}
+              {job?.shortCompanyName}
             </div>
 
             <div className="flex-1">
               <h2 className="text-xl font-semibold leading-tight text-black">
-                {data?.title}
+                {job?.title}
               </h2>
               <p className="mt-1 text-sm text-[var(--text-light)]">
-                {data?.location}
+                {job?.location}
               </p>
 
               <div className="mt-2 flex items-center gap-1.5 text-xs text-neutral-400">
@@ -67,7 +89,7 @@ export default function JobsModal() {
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                {data?.location}
+                {job?.location}
               </div>
             </div>
 
@@ -94,22 +116,22 @@ export default function JobsModal() {
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-100 px-6 py-4">
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-[10px] font-medium text-neutral-500">
-                {data?.type}
+                {job?.type}
               </span>
               <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-[10px] font-medium text-neutral-500">
-                {data?.category}
+                {job?.category}
               </span>
               <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-[10px] font-medium text-neutral-500">
-                {data?.experience}
+                {job?.experience}
               </span>
             </div>
 
             <div className="flex items-center gap-4">
               <span className="text-sm font-medium text-neutral-700">
-                {data?.salary}
+                {job?.salary}
               </span>
               <span className="text-[11px] text-neutral-400">
-                {data?.postedAt}
+                {job?.postedAt}
               </span>
             </div>
           </div>
@@ -120,7 +142,7 @@ export default function JobsModal() {
                 Despre job
               </h3>
               <p className="text-xs leading-relaxed text-[var(--text-light)]">
-                {data?.description}
+                {job?.description}
               </p>
             </section>
 
@@ -129,11 +151,11 @@ export default function JobsModal() {
               <ul className="space-y-1.5 text-xs text-[var(--text-light)]">
                 <li className="flex gap-2">
                   <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-neutral-300" />
-                  Experiență relevanta ca {data?.experience} {data?.category}
+                  Experiență relevanta ca {job?.experience} {job?.category}
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-neutral-300" />
-                  Experiență avansată cu {data?.tags[0]}
+                  Experiență avansată cu {job?.tags}
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-neutral-300" />
