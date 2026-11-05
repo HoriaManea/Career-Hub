@@ -436,6 +436,22 @@ export default function Jobs() {
                     </div>
                   </div>
                 </div>
+                {showJob && (
+                  <JobsModal
+                    category={el.category}
+                    company={el.company}
+                    description={el.description}
+                    experience={el.experience}
+                    id={el.id}
+                    location={el.location}
+                    postedAt={el.postedAt}
+                    salary={el.salary}
+                    shortCompanyName={el.shortCompanyName}
+                    tags={el.tags}
+                    title={el.title}
+                    type={el.type}
+                  />
+                )}
               </div>
             ))}
 
@@ -488,8 +504,6 @@ export default function Jobs() {
           </div>
         </div>
       </div>
-
-      {showJob && <JobsModal />}
     </div>
   );
 }

@@ -20,12 +20,6 @@ export default function Navigation() {
         <NavLink to="/explore">
           <li className="text-[var(--text-light)] cursor-pointer">Explore</li>
         </NavLink>
-        <NavLink to="/category">
-          <li className="text-[var(--text-light)] cursor-pointer">Category</li>
-        </NavLink>
-        <NavLink to="/pages">
-          <li className="text-[var(--text-light)] cursor-pointer">Pages</li>
-        </NavLink>
       </ul>
       <div className="flex gap-6">
         {false ? (
