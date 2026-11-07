@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
 import { useModal } from "../../hooks/useModal";
 import { useTranslation } from "../../i18n";
-import useCustomQuery from "../../hooks/useCustomQuery";
+
+import { Bookmark } from "lucide-react";
 
 type Job = {
   category?: string;
@@ -17,16 +19,11 @@ type Job = {
   type?: string;
 };
 
-type JobsModalProps = {
-  job: Job;
-};
-
 export default function JobsModal({
+  id,
   category,
-  company,
   description,
   experience,
-  id,
   location,
   postedAt,
   salary,
@@ -35,13 +32,28 @@ export default function JobsModal({
   title,
   type,
 }: Job) {
-  const isLoading = false;
+  const [bookedJobs, setBookedJobs] = useState<number[]>(() =>
+    JSON.parse(localStorage.getItem("bookedJobs") ?? "[]"),
+  );
 
   const { t } = useTranslation();
 
-  const { showJob, handleShowModal, jobId } = useModal();
+  const { handleShowModal } = useModal();
 
-  console.log(showJob);
+  const isLoading = false;
+
+  function handleBookmarkJob(e: React.MouseEvent<SVGSVGElement>, id?: number) {
+    e.stopPropagation();
+    if (id === undefined) return;
+
+    setBookedJobs((prev) => [...prev, id]);
+  }
+
+  useEffect(() => {
+    localStorage.setItem("bookedJobs", JSON.stringify(bookedJobs));
+  }, [bookedJobs]);
+
+  console.log(id);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
@@ -90,18 +102,7 @@ export default function JobsModal({
               aria-label="Save job"
               className="mt-1 text-neutral-300 transition-colors hover:text-[var(--light-green)]"
             >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M6 3a1 1 0 0 0-1 1v17l7-4 7 4V4a1 1 0 0 0-1-1H6Z" />
-              </svg>
+              <Bookmark onClick={(e) => handleBookmarkJob(e, id)} />
             </button>
           </div>
 

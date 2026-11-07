@@ -2,12 +2,12 @@ import { createContext, useState, type ReactNode } from "react";
 
 interface Modal {
   showJob: boolean;
-  jobId: string | undefined;
+  jobId: number | undefined;
 }
 
 interface ModalContextType extends Modal {
   handleShowModal: () => void;
-  handleJobNavigation: (id: string | undefined) => string | undefined;
+  handleJobNavigation: (id: number | undefined) => number | undefined;
 }
 
 export const ModalContext = createContext<ModalContextType | undefined>(
@@ -20,13 +20,13 @@ export function ShowModalProvider({
   children: ReactNode;
 }): ReactNode {
   const [showJob, setShowJob] = useState<boolean>(false);
-  const [jobId, setJobId] = useState<string | undefined>(undefined);
+  const [jobId, setJobId] = useState<number | undefined>(undefined);
 
   function handleShowModal(): void {
     setShowJob((prev) => !prev);
   }
 
-  function handleJobNavigation(id: string | undefined): string | undefined {
+  function handleJobNavigation(id: number | undefined): number | undefined {
     setJobId(id);
     return id;
   }

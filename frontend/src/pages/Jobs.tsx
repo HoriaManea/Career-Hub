@@ -23,8 +23,9 @@ export default function Jobs() {
   });
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { showJob, handleShowModal, handleJobNavigation } = useModal();
+  const { jobId, showJob, handleShowModal, handleJobNavigation } = useModal();
 
+  console.log(jobId);
   const {
     experieceLevel,
     jobType,
@@ -90,6 +91,8 @@ export default function Jobs() {
 
   const differencePage = totalPages - page;
   const startPage = totalPages - differencePage;
+
+  const selectedJob = data?.find((job) => job.id === jobId);
 
   return (
     <div className="w-full py-16 relative">
@@ -436,22 +439,6 @@ export default function Jobs() {
                     </div>
                   </div>
                 </div>
-                {showJob && (
-                  <JobsModal
-                    category={el.category}
-                    company={el.company}
-                    description={el.description}
-                    experience={el.experience}
-                    id={el.id}
-                    location={el.location}
-                    postedAt={el.postedAt}
-                    salary={el.salary}
-                    shortCompanyName={el.shortCompanyName}
-                    tags={el.tags}
-                    title={el.title}
-                    type={el.type}
-                  />
-                )}
               </div>
             ))}
 
@@ -500,6 +487,23 @@ export default function Jobs() {
               >
                 ›
               </button>
+            )}
+
+            {showJob && (
+              <JobsModal
+                category={selectedJob?.category}
+                company={selectedJob?.company}
+                description={selectedJob?.description}
+                experience={selectedJob?.experience}
+                id={selectedJob?.id}
+                location={selectedJob?.location}
+                postedAt={selectedJob?.postedAt}
+                salary={selectedJob?.salary}
+                shortCompanyName={selectedJob?.shortCompanyName}
+                tags={selectedJob?.tags}
+                title={selectedJob?.title}
+                type={selectedJob?.type}
+              />
             )}
           </div>
         </div>
