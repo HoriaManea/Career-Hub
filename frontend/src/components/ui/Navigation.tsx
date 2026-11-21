@@ -17,9 +17,6 @@ export default function Navigation() {
         <NavLink to="/jobs">
           <li className="text-[var(--text-light)] cursor-pointer">Jobs</li>
         </NavLink>
-        <NavLink to="/explore">
-          <li className="text-[var(--text-light)] cursor-pointer">Explore</li>
-        </NavLink>
       </ul>
       <div className="flex gap-6">
         {false ? (
