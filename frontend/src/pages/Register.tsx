@@ -1,98 +1,8 @@
-// import * as z from "zod";
-// import { useForm } from "react-hook-form";
-// import { zodResolver } from "@hookform/resolvers/zod";
+import { useState, type FormEvent } from "react";
 
-// import { Link } from "react-router";
-// import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
-// import React, { useState } from "react";
-
-// import { registerUser } from "../services/auth.service";
-
-// const formSchema = z
-//   .object({
-//     email: z.email({ message: "Invalid email address!" }),
-//     password: z
-//       .string()
-//       .min(1, { message: "Password is required" })
-//       .min(8, { message: "Password need to be at least 8 characters" }),
-//     confirmPassword: z
-//       .string()
-//       .min(1, { message: "Password is required" })
-//       .min(8, { message: "Password need to be at least 8 characters" }),
-//   })
-//   .refine((data) => data.password === data.confirmPassword, {
-//     message: "Passwords do not match",
-//     path: ["confirmPassword"],
-//   });
-
-// export default function Register() {
-//   const navigate = useNavigate();
-
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//   } = useForm<FormData>({
-//     resolver: zodResolver(formSchema),
-//     defaultValues: {
-//       email: "",
-//       password: "",
-//       confirmPassword: "",
-//     },
-//   });
-
-//   type FormData = z.infer<typeof formSchema>;
-
-//   const handleSignup = async (data: FormData) => {
-//     try {
-//       await registerUser({ email: data.email, password: data.password }).then(
-//         (response) => {
-//           navigate("/login");
-//           window.location.reload();
-//           console.log(response);
-//         },
-//         (error) => {
-//           console.log(error);
-//         },
-//       );
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
-
-//   return (
-//     <div className="flex flex-col">
-//       <h1>Register Page</h1>
-//       <form className="flex flex-col" onSubmit={handleSubmit(handleSignup)}>
-//         <label htmlFor="email">email</label>
-//         <input type="text" id="email" {...register("email")} />
-
-//         {errors.email && (
-//           <p className="text-xs text-red-500">{errors.email.message}</p>
-//         )}
-
-//         <label htmlFor="password">password</label>
-//         <input type="text" id="password" {...register("password")} />
-//         {errors.password && (
-//           <p className="text-xs text-red-500">{errors.password.message}</p>
-//         )}
-
-//         <label htmlFor="password">confirmPassword</label>
-//         <input type="text" id="password" {...register("confirmPassword")} />
-//         {errors.confirmPassword && (
-//           <p className="text-xs text-red-500">
-//             {errors.confirmPassword.message}
-//           </p>
-//         )}
-
-//         <button>Submit</button>
-//       </form>
-//     </div>
-//   );
-// }
-
-import { Link } from "react-router";
+import { useAuth } from "../contexts/AuthProvider";
 
 import profileImage1 from "../assets/profile1.jpg";
 import profileImage4 from "../assets/profile4.jpg";
@@ -102,6 +12,26 @@ import profileImage7 from "../assets/profile7.jpg";
 import profileImage9 from "../assets/profile9.jpg";
 
 export default function Register() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState<string | null>(null);
+
+  const { register } = useAuth();
+
+  const navigate = useNavigate();
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setError(null);
+    try {
+      await register(email, password, username);
+      navigate("/", { replace: true });
+    } catch (err) {
+      setError((err as Error).message);
+    }
+  }
+
   return (
     <div className="relative flex min-h-[58rem] w-full flex-col items-center justify-center overflow-hidden px-4 py-16">
       <div className="absolute left-[9%] top-[18%] hidden h-12 w-12 overflow-hidden rounded-full border-2 border-white shadow-md md:block">
@@ -167,16 +97,20 @@ export default function Register() {
       <div className="absolute right-[15%] top-[72%] h-2 w-2 rounded-full bg-pink-200" />
 
       <section className="relative z-10 flex w-full max-w-[460px] flex-col items-center">
-        <h1 className="text-center text-5xl font-medium leading-[1.05] tracking-[-1.5px] text-black">
+        <button className="text-center text-5xl font-medium leading-[1.05] tracking-[-1.5px] text-black">
           Create account
-        </h1>
+        </button>
 
         <p className="mt-4 text-center text-sm text-[var(--text-light)]">
           Join thousands of people finding their next role.
         </p>
 
         <div className="mt-9 w-full rounded-2xl border border-neutral-200 bg-white p-7 shadow-sm">
-          <form noValidate className="flex flex-col gap-4">
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="flex flex-col gap-4"
+          >
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">
                 <label
@@ -201,7 +135,9 @@ export default function Register() {
                   <input
                     id="firstName"
                     type="text"
-                    placeholder="Alexandra"
+                    placeholder="FirstName"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                     className="w-full bg-transparent text-sm text-neutral-700 outline-none placeholder:text-neutral-400"
                   />
                 </div>
@@ -258,10 +194,11 @@ export default function Register() {
                   <path d="m3 7 9 6 9-6" />
                 </svg>
                 <input
-                  id="email"
                   type="email"
-                  placeholder="you@example.com"
-                  className="w-full bg-transparent text-sm text-neutral-700 outline-none placeholder:text-neutral-400"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -287,10 +224,12 @@ export default function Register() {
                   <path d="M8 11V7a4 4 0 0 1 8 0v4" />
                 </svg>
                 <input
-                  id="password"
                   type="password"
-                  placeholder="••••••••"
-                  className="w-full bg-transparent text-sm text-neutral-700 outline-none placeholder:text-neutral-400"
+                  placeholder="Parolă (minim 8 caractere)"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  minLength={8}
+                  required
                 />
                 <button
                   type="button"

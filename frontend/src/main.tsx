@@ -8,6 +8,7 @@ import { ShowModalProvider } from "./contexts/ShowModalContext";
 
 import App from "./App";
 import "./index.css";
+import AuthProvider from "./contexts/AuthProvider";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,9 @@ createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <SettingsProvider>
         <ShowModalProvider>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </ShowModalProvider>
       </SettingsProvider>
     </QueryClientProvider>
