@@ -12,12 +12,17 @@ type AuthState = {
     password: string,
     username: string,
   ) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
 };
 
 const AuthContext = createContext<AuthState | null>(null);
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState<boolean | null>(null);
+
+  async function login(email: string, password: string) {
+    return;
+  }
 
   async function register(email: string, password: string, username: string) {
     const res = await fetch("http://localhost:8000/register-user", {
@@ -36,7 +41,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
   return (
-    <AuthContext.Provider value={{ register }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ register, login }}>
+      {children}
+    </AuthContext.Provider>
   );
 }
 

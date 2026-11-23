@@ -362,33 +362,6 @@ export default function Register() {
             >
               Create account
             </button>
-
-            <div className="flex items-center gap-3">
-              <span className="h-px flex-1 bg-neutral-200" />
-              <span className="text-[11px] text-neutral-400">or</span>
-              <span className="h-px flex-1 bg-neutral-200" />
-            </div>
-
-            <button
-              type="button"
-              className="flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full border-2 border-solid border-neutral-200 text-xs font-medium text-neutral-600 transition-all duration-200 hover:-translate-y-[1px] hover:border-neutral-300 active:translate-y-0 active:opacity-70"
-            >
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 3a14 14 0 0 1 0 18" />
-                <path d="M12 3a14 14 0 0 0 0 18" />
-                <path d="M3 12h18" />
-              </svg>
-              Continue with Google
-            </button>
           </form>
         </div>
 
