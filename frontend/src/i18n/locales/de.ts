@@ -4,7 +4,7 @@ export const de = {
     subtitle:
       "Jobs & Jobsuche. Finden Sie Jobs weltweit. Führungspositionen & Arbeitsmöglichkeiten.",
     jobCategories: "Jobkategorien",
-    keywordsOrTitle: "Stichwörter oder Titel",
+    keywordsOrTitle: "Nach Stichwort oder Titel suchen",
     categoryPlaceholder: "Designer",
     keywordsPlaceholder: "Design, Branding",
     search: "Suchen",
@@ -109,7 +109,7 @@ export const de = {
       description:
         "Diese Aktionen sind endgültig und können nicht rückgängig gemacht werden.",
       deactivate: {
-        title: "Logout",
+        title: "Abmelden",
       },
       delete: {
         title: "Konto löschen",
@@ -123,9 +123,40 @@ export const de = {
       saveButton: "Speichern",
       applyButton: "Bewerben",
     },
+    findNextRole: "Finden Sie Ihre nächste Stelle",
+    browseOpenings:
+      "Entdecke ausgewählte Stellen von Teams, die gerade einstellen.",
+    keywordsOrTitle: "Stichwörter oder Jobtitel",
+    filters: "Filter",
+    clearAll: "Alle löschen",
+    categories: {
+      title: "Kategorien",
+      design: "Design",
+      development: "Entwicklung",
+      marketing: "Marketing",
+      business: "Business",
+      sales: "Vertrieb",
+    },
+    jobType: {
+      title: "Anstellungsart",
+      fullTime: "Vollzeit",
+      partTime: "Teilzeit",
+      contract: "Befristet",
+      internship: "Praktikum",
+    },
+    experienceLevel: {
+      title: "Erfahrungsstufe",
+      junior: "Junior",
+      middle: "Mid-Level",
+      senior: "Senior",
+      lead: "Lead",
+    },
+    location: {
+      title: "Arbeitsort",
+      remote: "Remote",
+      onSite: "Vor Ort",
+      hybrid: "Hybrid",
+    },
   },
-  navigation: {
-    home: "Startseite",
-    jobs: "Jobs",
-  },
+  navigation: { home: "Startseite", jobs: "Jobs" },
 };

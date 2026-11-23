@@ -1,3 +1,5 @@
+import { useTranslation } from "../i18n";
+
 import { useState } from "react";
 
 import JobsModal from "../components/ui/JobsModal";
@@ -10,6 +12,10 @@ import { useDebounce } from "../hooks/useDebounce";
 import Spinner from "../components/reusable/Spinner";
 
 export default function Jobs() {
+  const { t } = useTranslation();
+
+  const jobsTranslation = t.jobs;
+
   const [page, setPage] = useState(() => {
     const savedPage = localStorage.getItem("page");
 
@@ -21,11 +27,11 @@ export default function Jobs() {
 
     return 1;
   });
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const { jobId, showJob, handleShowModal, handleJobNavigation } = useModal();
 
-  console.log(jobId);
   const {
     experieceLevel,
     jobType,
@@ -98,11 +104,11 @@ export default function Jobs() {
     <div className="w-full py-16 relative">
       <div className="mx-auto flex max-w-[1100px] flex-col items-center">
         <h1 className="text-center text-5xl font-medium leading-[1.05] tracking-[-1.5px] text-black">
-          Find your next role
+          {jobsTranslation.findNextRole}
         </h1>
 
         <p className="mt-4 max-w-md text-center text-sm text-[var(--text-light)]">
-          Browse curated openings from teams that are hiring right now.
+          {jobsTranslation.browseOpenings}
         </p>
 
         <form
@@ -114,7 +120,7 @@ export default function Jobs() {
               className="mb-1 text-center text-[20px] text-neutral-400"
               htmlFor="keywords"
             >
-              Keywords or title
+              {jobsTranslation.keywordsOrTitle}
             </label>
             <input
               id="keywords"
@@ -131,18 +137,20 @@ export default function Jobs() {
       <div className="mx-auto mt-14 flex w-full max-w-[1100px] items-start gap-10">
         <aside className="hidden w-[220px] shrink-0 lg:block">
           <div className="mb-5 flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-black">Filters</h2>
+            <h2 className="text-sm font-semibold text-black">
+              {jobsTranslation.filters}
+            </h2>
             <button
               onClick={handleClearFilter}
               type="button"
               className="cursor-pointer text-[11px] font-medium text-[var(--light-green)] hover:underline"
             >
-              Clear all
+              {jobsTranslation.clearAll}
             </button>
           </div>
           <div className="mb-6">
             <h3 className="mb-3 text-xs font-semibold text-neutral-700">
-              Categories
+              {jobsTranslation.categories.title}
             </h3>
             <div className="flex flex-col gap-2.5">
               <label className="flex items-center gap-2 text-xs text-neutral-500">
@@ -153,7 +161,7 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Design
+                {jobsTranslation.categories.design}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -166,7 +174,7 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Development
+                {jobsTranslation.categories.development}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -179,7 +187,7 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Marketing
+                {jobsTranslation.categories.marketing}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -192,7 +200,7 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Business
+                {jobsTranslation.categories.business}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -212,7 +220,7 @@ export default function Jobs() {
 
           <div className="mb-6">
             <h3 className="mb-3 text-xs font-semibold text-neutral-700">
-              Job type
+              {jobsTranslation.jobType.title}
             </h3>
             <div className="flex flex-col gap-2.5">
               <label className="flex items-center gap-2 text-xs text-neutral-500">
@@ -227,7 +235,7 @@ export default function Jobs() {
                   defaultChecked
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Full-time
+                {jobsTranslation.jobType.fullTime}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -240,7 +248,7 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Part-time
+                {jobsTranslation.jobType.partTime}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -253,7 +261,7 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Contract
+                {jobsTranslation.jobType.contract}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -266,14 +274,14 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Internship
+                {jobsTranslation.jobType.internship}
               </label>
             </div>
           </div>
 
           <div className="mb-6">
             <h3 className="mb-3 text-xs font-semibold text-neutral-700">
-              Experience level
+              {jobsTranslation.experienceLevel.title}
             </h3>
             <div className="flex flex-col gap-2.5">
               <label className="flex items-center gap-2 text-xs text-neutral-500">
@@ -287,7 +295,7 @@ export default function Jobs() {
                   checked={experieceLevel === "Junior"}
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Junior
+                {jobsTranslation.experienceLevel.junior}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -301,7 +309,7 @@ export default function Jobs() {
                   defaultChecked
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Middle
+                {jobsTranslation.experienceLevel.middle}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -314,7 +322,7 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Senior
+                {jobsTranslation.experienceLevel.senior}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -327,14 +335,14 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Lead
+                {jobsTranslation.experienceLevel.lead}
               </label>
             </div>
           </div>
 
           <div className="mb-6">
             <h3 className="mb-3 text-xs font-semibold text-neutral-700">
-              Location
+              {jobsTranslation.location.title}
             </h3>
             <div className="flex flex-col gap-2.5">
               <label className="flex items-center gap-2 text-xs text-neutral-500">
@@ -349,7 +357,7 @@ export default function Jobs() {
                   defaultChecked
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Remote
+                {jobsTranslation.location.remote}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -362,7 +370,7 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                On-site
+                {jobsTranslation.location.onSite}
               </label>
               <label className="flex items-center gap-2 text-xs text-neutral-500">
                 <input
@@ -375,7 +383,7 @@ export default function Jobs() {
                   type="checkbox"
                   className="h-3.5 w-3.5 rounded border-neutral-300 accent-[var(--light-green)]"
                 />
-                Hybrid
+                {jobsTranslation.location.hybrid}
               </label>
             </div>
           </div>

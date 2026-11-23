@@ -7,12 +7,12 @@ export const fr = {
     subtitle:
       "Emplois et recherche d'emploi. Trouvez des emplois dans le monde entier. Postes de direction et opportunités de travail.",
     jobCategories: "Catégories d'emploi",
-    keywordsOrTitle: "Mots-clés ou titre",
     categoryPlaceholder: "Designer",
     keywordsPlaceholder: "Design, branding",
     search: "Rechercher",
     popular: "Populaire: ",
     popularItems: "Designer, Art, Business, Montage vidéo",
+    keywordsOrTitle: "Rechercher par mot-clé ou titre",
   },
   account: {
     pageTitle: "Paramètres du compte",
@@ -111,7 +111,7 @@ export const fr = {
       description:
         "Ces actions sont permanentes et ne peuvent pas être annulées.",
       deactivate: {
-        title: "Logout",
+        title: "Se déconnecter",
       },
       delete: {
         title: "Supprimer le compte",
@@ -126,9 +126,40 @@ export const fr = {
       saveButton: "Enregistrer",
       applyButton: "Postuler",
     },
+    findNextRole: "Trouvez votre prochain poste",
+    browseOpenings:
+      "Parcourez des offres sélectionnées auprès d'équipes qui recrutent en ce moment.",
+    keywordsOrTitle: "Mots-clés ou intitulé",
+    filters: "Filtres",
+    clearAll: "Tout effacer",
+    categories: {
+      title: "Catégories",
+      design: "Design",
+      development: "Développement",
+      marketing: "Marketing",
+      business: "Business",
+      sales: "Ventes",
+    },
+    jobType: {
+      title: "Type de contrat",
+      fullTime: "Temps plein",
+      partTime: "Temps partiel",
+      contract: "Contrat",
+      internship: "Stage",
+    },
+    experienceLevel: {
+      title: "Niveau d'expérience",
+      junior: "Junior",
+      middle: "Intermédiaire",
+      senior: "Senior",
+      lead: "Lead",
+    },
+    location: {
+      title: "Lieu",
+      remote: "Télétravail",
+      onSite: "Sur site",
+      hybrid: "Hybride",
+    },
   },
-  navigation: {
-    home: "Accueil",
-    jobs: "Emplois",
-  },
+  navigation: { home: "Accueil", jobs: "Emplois" },
 };

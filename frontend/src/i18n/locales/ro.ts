@@ -4,7 +4,7 @@ export const ro = {
     subtitle:
       "Locuri de muncă și căutare joburi. Găsește joburi la nivel global. Joburi executive și oportunități de lucru.",
     jobCategories: "Categorii de joburi",
-    keywordsOrTitle: "Cuvinte cheie sau titlu",
+    keywordsOrTitle: "Caută după cuvânt cheie sau titlu",
     categoryPlaceholder: "Designer",
     keywordsPlaceholder: "Design, branding",
     search: "Caută",
@@ -105,7 +105,7 @@ export const ro = {
       title: "Zonă de pericol",
       description: "Aceste acțiuni sunt permanente și nu pot fi anulate.",
       deactivate: {
-        title: "Logout",
+        title: "Deconectare",
       },
       delete: {
         title: "Șterge contul",
@@ -119,9 +119,40 @@ export const ro = {
       saveButton: "Salvează",
       applyButton: "Aplică",
     },
+    findNextRole: "Găsește-ți următorul job",
+    browseOpenings:
+      "Descoperă oferte selectate de la echipe care angajează chiar acum.",
+    keywordsOrTitle: "Cuvinte cheie sau titlu",
+    filters: "Filtre",
+    clearAll: "Șterge tot",
+    categories: {
+      title: "Categorii",
+      design: "Design",
+      development: "Dezvoltare",
+      marketing: "Marketing",
+      business: "Business",
+      sales: "Vânzări",
+    },
+    jobType: {
+      title: "Tip job",
+      fullTime: "Normă întreagă",
+      partTime: "Part-time",
+      contract: "Contract",
+      internship: "Internship",
+    },
+    experienceLevel: {
+      title: "Nivel de experiență",
+      junior: "Junior",
+      middle: "Mid",
+      senior: "Senior",
+      lead: "Lead",
+    },
+    location: {
+      title: "Locație",
+      remote: "Remote",
+      onSite: "La birou",
+      hybrid: "Hibrid",
+    },
   },
-  navigation: {
-    home: "Acasă",
-    jobs: "Joburi",
-  },
+  navigation: { home: "Acasă", jobs: "Joburi" },
 };

@@ -4,7 +4,7 @@ export const en = {
     subtitle:
       "Jobs & Job Search. Find jobs globally. Executive jobs & work opportunities.",
     jobCategories: "Job Categories",
-    keywordsOrTitle: "Keywords or Title",
+    keywordsOrTitle: "Search by keyword or title",
     categoryPlaceholder: "Designer",
     keywordsPlaceholder: "Design, branding",
     search: "Search",
@@ -115,6 +115,40 @@ export const en = {
     applyForm: {
       saveButton: "Save",
       applyButton: "Apply",
+    },
+    findNextRole: "Find your next role",
+    browseOpenings:
+      "Browse curated openings from teams that are hiring right now.",
+    keywordsOrTitle: "Keywords or title",
+    filters: "Filters",
+    clearAll: "Clear all",
+    categories: {
+      title: "Categories",
+      design: "Design",
+      development: "Development",
+      marketing: "Marketing",
+      business: "Business",
+      sales: "Sales",
+    },
+    jobType: {
+      title: "Job type",
+      fullTime: "Full-time",
+      partTime: "Part-time",
+      contract: "Contract",
+      internship: "Internship",
+    },
+    experienceLevel: {
+      title: "Experience level",
+      junior: "Junior",
+      middle: "Middle",
+      senior: "Senior",
+      lead: "Lead",
+    },
+    location: {
+      title: "Location",
+      remote: "Remote",
+      onSite: "On-site",
+      hybrid: "Hybrid",
     },
   },
   navigation: {

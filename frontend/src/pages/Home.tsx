@@ -1,4 +1,5 @@
 import { useTranslation } from "../i18n";
+
 import { Link } from "react-router";
 
 import profileImage1 from "../assets/profile1.jpg";
@@ -13,6 +14,8 @@ import profileImage9 from "../assets/profile9.jpg";
 
 export default function Home() {
   const { t } = useTranslation();
+
+  const home = t.home;
 
   return (
     <div className="relative flex min-h-[58rem] w-full flex-col items-center justify-center overflow-hidden">
@@ -148,10 +151,10 @@ export default function Home() {
 
             <div className="flex flex-col text-left">
               <span className="text-xs font-semibold text-neutral-700">
-                Job Categories
+                {home.jobCategories}
               </span>
               <span className="text-[11px] text-neutral-400">
-                Search by keyword or title
+                {home.keywordsOrTitle}
               </span>
             </div>
           </div>
@@ -177,7 +180,7 @@ export default function Home() {
             className="flex h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[var(--light-green)] px-7 text-xs font-medium !text-white transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,255,140,0.35)] active:translate-y-0 active:opacity-70"
             to={"/jobs"}
           >
-            Search
+            {home.search}
           </Link>
         </div>
 
