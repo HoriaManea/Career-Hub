@@ -117,4 +117,8 @@ export const en = {
       applyButton: "Apply",
     },
   },
+  navigation: {
+    home: "Home",
+    jobs: "Jobs",
+  },
 };

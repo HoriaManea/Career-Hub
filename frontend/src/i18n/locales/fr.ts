@@ -127,4 +127,8 @@ export const fr = {
       applyButton: "Postuler",
     },
   },
+  navigation: {
+    home: "Accueil",
+    jobs: "Emplois",
+  },
 };

@@ -120,4 +120,8 @@ export const ro = {
       applyButton: "Aplică",
     },
   },
+  navigation: {
+    home: "Acasă",
+    jobs: "Joburi",
+  },
 };

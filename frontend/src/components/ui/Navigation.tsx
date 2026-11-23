@@ -1,7 +1,14 @@
 import { NavLink } from "react-router";
+
+import { useTranslation } from "../../i18n";
+
 import profileImage from "../../assets/profile1.jpg";
 
 export default function Navigation() {
+  const { t } = useTranslation();
+
+  const navigation = t.navigation;
+
   return (
     <nav className="flex flex-row justify-between  pt-5">
       <NavLink to="/">
@@ -12,10 +19,14 @@ export default function Navigation() {
 
       <ul className="flex flex-row gap-6 items-center">
         <NavLink to="/">
-          <li className="text-[var(--text-light)] cursor-pointer">Home</li>
+          <li className="text-[var(--text-light)] cursor-pointer">
+            {navigation.home}
+          </li>
         </NavLink>
         <NavLink to="/jobs">
-          <li className="text-[var(--text-light)] cursor-pointer">Jobs</li>
+          <li className="text-[var(--text-light)] cursor-pointer">
+            {navigation.jobs}
+          </li>
         </NavLink>
       </ul>
       <div className="flex gap-6">

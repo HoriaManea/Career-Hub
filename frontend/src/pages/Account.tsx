@@ -1,10 +1,12 @@
 import { useTranslation } from "../i18n";
 
 import { useSettings } from "../hooks/useSettings";
+
 import profileImage1 from "../assets/profile1.jpg";
 
 export default function Account() {
   const { language, setLanguage } = useSettings();
+
   const { t } = useTranslation();
 
   const account = t.account;

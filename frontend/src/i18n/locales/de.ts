@@ -124,4 +124,8 @@ export const de = {
       applyButton: "Bewerben",
     },
   },
+  navigation: {
+    home: "Startseite",
+    jobs: "Jobs",
+  },
 };
